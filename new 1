@@ -1,0 +1,57 @@
+./redis-cli --cluster create 192.168.1.72:7001 192.168.1.72:7002 192.168.1.72:7003 192.168.1.72:7004 192.168.1.72:7005 192.168.1.72:7006 --cluster-replicas 1
+https://blog.csdn.net/plei_yue/article/details/78857560
+https://blog.csdn.net/weixin_33851604/article/details/94098037
+
+/usr/local/bin
+
+[NDBD DEFAULT]
+NoOfReplicas=1
+DataMemory=500M
+IndexMemory=300M
+[TCP DEFAULT]
+#portnumber=2202
+[NDB_MGMD]
+hostname=192.168.1.72
+datadir=/var/lib/mysql_cluster/
+[NDBD]
+hostname=192.168.1.76
+datadir=/usr/local/mysql/data/
+[NDBD]
+hostname=192.168.1.78
+datadir=/usr/local/mysql/data/
+[MYSQLD]
+hostname=192.168.1.76
+[MYSQLD]
+hostname=192.168.1.78
+
+[ndbd default]
+NoOfReplicas=2
+DataMemory=160M
+IndexMemory=64M
+MaxNoOfTables=1024
+MaxNoOfAttributes=5000
+MaxNoOfOrderedIndexes=1000
+
+[ndb_mgmd]
+nodeid=1
+hostname=192.168.1.72
+datadir=/var/lib/mysql_cluster
+
+[ndb_mgmd]
+nodeid=2
+hostname=192.168.1.210
+datadir=/var/lib/mysql_cluster
+
+[ndbd]
+hostname=192.168.1.76
+datadir=/usr/local/mysql/data
+
+[ndbd]
+hostname=192.168.1.78
+datadir=/usr/local/mysql/data
+
+[mysqld]
+hostname=192.168.1.76
+
+[mysqld]
+hostname=192.168.1.78
